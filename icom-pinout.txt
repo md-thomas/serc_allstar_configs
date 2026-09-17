@@ -1,0 +1,44 @@
+================================================================================
+ICOM FR5300 / CY-5300 HD15 ACCESSORY CONNECTOR PINOUT & ALLSTAR WIRING
+================================================================================
+
+1. REAR HD15 CONNECTOR PINOUT
+--------------------------------------------------------------------------------
+Pin #   Signal Name   Direction   Description / Function
+--------------------------------------------------------------------------------
+ 1      MIC IN        Input       External Microphone / Pre-emphasized TX Audio
+ 2      MOD IN 2      Input       Auxiliary Modulation Input
+ 3      EXT PTT       Input       External PTT Control (Active Low / Ground to TX)
+ 4      EOG           Ground      Signal Ground
+ 5      DISC IN       Input       External Discriminator Audio Input
+ 6      MOD IN        Input       Direct Modulator Input (Flat / Unfiltered TX)
+ 7      AF OUT        Output      De-emphasized / Filtered Receive Audio Output
+ 8      GND           Ground      System Ground
+ 9      13.8V         Output      Switched 13.8V DC Output (Fused/Limited)
+ 10     IO1           Output      Programmable I/O 1 (Default: Busy Output)
+ 11     IO2           Output      Programmable I/O 2 (Assignable Output)
+ 12     DISC OUT      Output      Discriminator Audio Output (Flat / Unfiltered)
+ 13     IO3           I/O         Programmable I/O 3 (Assignable Input/Output)
+ 14     IO4           I/O         Programmable I/O 4 (Assignable Input/Output)
+ 15     NC / GND      --          No Connection or Ground (Variant Dependent)
+
+
+2. SIMPLEUSB / ALLSTAR INTERFACE WIRING
+--------------------------------------------------------------------------------
+Function        FR5300 Pin              USB Interface Connection
+--------------------------------------------------------------------------------
+PTT Control     Pin 3 (EXT PTT)         PTT Out (Active Low / Ground to TX)
+COS / Squelch   Pin 10 (IO1 - Busy)     COR/COS In (Active Low / usbinvert)
+RX Audio (Flat) Pin 12 (DISC OUT)       RX Audio In (Requires deemphasis=yes)
+  OR Filtered   Pin 7 (AF OUT)          RX Audio In (Requires deemphasis=no)
+TX Audio (Flat) Pin 6 (MOD IN)          TX Audio Out (Requires preemphasis=yes)
+  OR Mic Level  Pin 1 (MIC IN)          TX Audio Out (Requires preemphasis=no)
+Ground          Pin 4 or 8 (GND)        Interface Ground
+
+
+3. CS-FR5300 PROGRAMMING SOFTWARE NOTES
+--------------------------------------------------------------------------------
+* Go to: Expert -> Assignable Pins
+* Set Pin 10 (IO1) to "Busy" and active logic level to Active Low to match
+  carrierfrom = usbinvert in simpleusb.conf.
+================================================================================

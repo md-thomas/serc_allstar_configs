@@ -1,0 +1,29 @@
+;-------------------------------------------------------------------------------
+; simpleusb.conf - Site 1 / SMHS / Node 1200 (Icom FR5300 HD15 Connector)
+;-------------------------------------------------------------------------------
+
+[general]
+
+[usb1]
+eeprom = 0
+
+; Carrier Operated Squelch (COS)
+; Active Low output from Icom HD15 Pin 10 (IO1 set to Busy / Active Low)
+carrierfrom = usbinvert
+ctcssfrom = no
+
+; PTT Control
+; 0 = Active Low / Ground to TX on Icom HD15 Pin 3 (EXT PTT)
+invertptt = 0
+
+; Audio Processing Settings (Option A: Using Pin 12 DISC OUT & Pin 6 MOD IN)
+rxboost = 0          ; Set to 1 if receiver output level is too low
+plfilter = yes       ; Filters sub-audible CTCSS tones from repeat audio
+
+; DSP Filtering (Required for Flat / Unfiltered Audio on Pins 12 & 6):
+deemphasis = yes     ; Required because Pin 12 (DISC OUT) is flat/unfiltered
+preemphasis = yes    ; Required because Pin 6 (MOD IN) is direct modulator input
+
+; Squelch Tail & Timing Settings
+rxaudiodelay = 8     ; Mutes squelch tail static (160ms delay)
+rxondelay = 3        ; Prevents false squelch triggers (60ms delay)

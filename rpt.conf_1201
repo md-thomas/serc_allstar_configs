@@ -1,0 +1,58 @@
+;-------------------------------------------------------------------------------
+; rpt.conf - Site 2 (Node 1201)
+;-------------------------------------------------------------------------------
+
+[1201]
+rxchannel = SimpleUSB/usb1
+duplex = 2
+erxgain = -3
+etxgain = 3
+hangtime = 1000
+altmode = 0
+callerid = Repeater <000001201>
+accountcode = RADIO
+
+; Sub-stanza references
+controlstates = controlstates1201
+telemetry = telemetry1201
+morse = morse1201
+macro = macro1201
+functions = functions1201
+nodes = nodes
+
+; Identification
+idrecording = |iDE W4IE/R
+idinterval = 600
+
+[controlstates1201]
+0 = rxtxcontrol,enable
+1 = rxtxcontrol,disable
+
+[telemetry1201]
+telemain = |t(1000,0,100,2000)(0,0,0,0)
+remotemon = |t(1200,0,100,2000)(0,0,0,0)
+remotetx = |t(1200,0,100,2000)(0,0,0,0)
+
+[morse1201]
+speed = 20
+frequency = 800
+pitch = 800
+weight = 50
+
+[macro1201]
+1 = *31200#
+2 = *31202#
+
+[functions1201]
+1 = ilink,1
+2 = ilink,2
+3 = ilink,3
+70 = ilink,5
+
+;-------------------------------------------------------------------------------
+; Global Routing Table
+;-------------------------------------------------------------------------------
+[nodes]
+1200 = radio@10.166.232.76/1200,NONE    ; SMHS Node
+1201 = radio@127.0.0.1/1201,NONE        ; SMHV Node
+1202 = radio@10.14.182.250/1202,NONE    ; N4LPK Node

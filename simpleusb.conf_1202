@@ -1,0 +1,34 @@
+;-------------------------------------------------------------------------------
+; simpleusb.conf - Site 3 / N4LPK / Node 1202 (SHARI SA818 RF Module)
+;-------------------------------------------------------------------------------
+
+[general]
+
+[usb1]
+eeprom = 0
+
+; Carrier Operated Squelch (COS)
+; SHARI / SA818 C-Media interfaces use Active High COS logic
+carrierfrom = usbinvert
+ctcssfrom = no
+
+; PTT Control
+; 0 = Standard Active Low PTT to key the SA818 transmitter module
+invertptt = 1
+
+; Audio Processing Settings
+rxboost = 0          ; Leave at 0; adjust levels in simpleusb-tune-menu if needed
+plfilter = yes       ; Filters sub-audible CTCSS tones from repeat audio
+
+; Audio Filtering for SA818 Modules:
+; Set both to 'no' because the SA818 onboard DSP handles pre/de-emphasis hardware-side.
+; Enabling these in software results in muffled or harsh/tinny audio.
+deemphasis = no
+preemphasis = no
+
+; Squelch tail elimination (8 = 160ms delay)
+rxaudiodelay = 0
+dcsfilter = no
+rxondelay = 0
+queuesize = 8
+tx_audio_level_method = 0

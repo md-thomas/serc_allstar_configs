@@ -1,0 +1,91 @@
+;-------------------------------------------------------------------------------
+; iax.conf - Site 2 / Node 1201
+;-------------------------------------------------------------------------------
+
+[general]
+bindport = 4569
+bindaddr = 0.0.0.0            ; Listen on all network interfaces
+disallow = all
+allow = ulaw                  ; Standard uncompressed audio for clean IP/mesh transport
+jitterbuffer = yes
+forcejitterbuffer = yes
+dropcount = 2
+maxjitterbuffer = 4000
+maxjitterinterps = 10
+resyncthreshold = 1000
+maxexcessbuffer = 80
+minexcessbuffer = 10
+jittershrinkrate = 1
+tos = 0x1E
+autokill = yes
+delayreject = yes
+
+; Public AllStar Network Registration
+; Uncomment and fill in password if connecting to public AllStar directory
+;register => 1201:YOUR_NODE_PASSWORD@register.allstarlink.org
+
+#includeifexists iax-hamvoip.conf
+
+;-------------------------------------------------------------------------------
+; Node-to-Node Radio Links
+;-------------------------------------------------------------------------------
+
+[radio]
+type = user
+disallow = all
+allow = ulaw
+codecpriority = host
+context = radio-secure
+transfer = no
+
+;-------------------------------------------------------------------------------
+; Client Extensions (Optional / Disabled by Default)
+;-------------------------------------------------------------------------------
+
+; Windows IAXRPT Application Setup
+;[iaxrpt]
+;user = iaxrpt
+;type = user
+;context = radio-iaxrpt
+;auth = md5
+;secret = YOUR_IAXRPT_PASSWORD
+;host = dynamic
+;disallow = all
+;allow = ulaw
+;transfer = no
+
+; Mobile Application Setup (Zoiper / IAXRPT Mobile)
+;[myphone-iaxrpt]
+;type = friend
+;context = phone-iaxrpt
+;host = dynamic
+;auth = md5
+;secret = YOUR_PHONE_PASSWORD
+;disallow = all
+;allow = ulaw
+;transfer = no
+;calltokenoptional = 0.0.0.0/0.0.0.0
+;requirecalltoken = no
+
+;-------------------------------------------------------------------------------
+; AllStar System Services
+;-------------------------------------------------------------------------------
+
+[allstar-sys]
+type = user
+context = allstar-sys
+auth = rsa
+inkeys = allstar
+disallow = all
+allow = ulaw
+
+[allstar-public]
+type = user
+context = allstar-public
+auth = md5
+secret = allstar
+disallow = all
+allow = ulaw
+
+; Load custom overrides last so HamVoIP updates do not overwrite user settings
+#includeifexists custom/iax.conf
