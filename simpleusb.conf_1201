@@ -9,12 +9,12 @@ eeprom = 0
 
 ; Carrier Operated Squelch (COS)
 ; Set to 'usbinvert' for Active Low signal from TKR-850 DB25 Pin 20 (TOR) or Pin 8 (RD)
-carrierfrom = usbinvert
+carrierfrom = usb
 ctcssfrom = no
 
 ; PTT Control
 ; 0 = Ground to Transmit (Active Low to TKR-850 DB25 Pin 22 TA)
-invertptt = 1
+invertptt = 0
 
 ; Audio Processing Settings (For Pin 19 RA & Pin 13 TA Direct Mod)
 rxboost = 0          ; Set to 1 only if receiver output level is too low
@@ -25,6 +25,10 @@ preemphasis = yes    ; Required when driving direct modulator on Pin 13 (TA)
 ; Delay to mute the receiver audio burst before squelch completely drops (8 = 160ms)
 rxaudiodelay = 8
 dcsfilter = no
-rxondelay = 0  ;should be 3
+rxondelay = 0
 queuesize = 16
 tx_audio_level_method = 0
+;dcsfilter = no
+;rxondelay = 2
+;queuesize = 8
+;tx_audio_level_method = 0

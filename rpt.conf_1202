@@ -5,7 +5,6 @@
 [1202]
 rxchannel = SimpleUSB/usb1
 duplex = 0
-link_md = 0
 erxgain = -3
 etxgain = 3
 hangtime = 1000

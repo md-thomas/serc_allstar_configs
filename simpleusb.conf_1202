@@ -14,11 +14,11 @@ ctcssfrom = no
 
 ; PTT Control
 ; 0 = Standard Active Low PTT to key the SA818 transmitter module
-invertptt = 1
+invertptt = 0
 
 ; Audio Processing Settings
 rxboost = 0          ; Leave at 0; adjust levels in simpleusb-tune-menu if needed
-plfilter = yes       ; Filters sub-audible CTCSS tones from repeat audio
+plfilter = yes        ; Filters sub-audible CTCSS tones from repeat audio
 
 ; Audio Filtering for SA818 Modules:
 ; Set both to 'no' because the SA818 onboard DSP handles pre/de-emphasis hardware-side.
@@ -27,8 +27,12 @@ deemphasis = no
 preemphasis = no
 
 ; Squelch tail elimination (8 = 160ms delay)
-rxaudiodelay = 0
+rxaudiodelay = 8
 dcsfilter = no
 rxondelay = 0
-queuesize = 8
+queuesize = 16
 tx_audio_level_method = 0
+;dcsfilter = no
+;rxondelay = 3
+;queuesize = 11
+;tx_audio_level_method = 0
