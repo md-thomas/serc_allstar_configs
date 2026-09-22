@@ -8,13 +8,15 @@ duplex = 2
 erxgain = -3
 etxgain = 3
 hangtime = 1000
+althangtime = 1000
 altmode = 0
 callerid = Repeater <000001201>
 accountcode = RADIO
 
 ; Sub-stanza references
 controlstates = controlstates1201
-telemetry = telemetry1201
+;telemetry = telemetry1201
+telemetry = quiet
 morse = morse1201
 macro = macro1201
 functions = functions1201
