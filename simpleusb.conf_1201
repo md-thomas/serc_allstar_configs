@@ -23,10 +23,10 @@ deemphasis = yes     ; Required when taking raw discriminator audio from Pin 19 
 preemphasis = yes    ; Required when driving direct modulator on Pin 13 (TA)
 
 ; Delay to mute the receiver audio burst before squelch completely drops (8 = 160ms)
-rxaudiodelay = 8
+rxaudiodelay = 10
 dcsfilter = no
-rxondelay = 0
-queuesize = 16
+rxondelay = 6
+queuesize = 18
 tx_audio_level_method = 0
 ;dcsfilter = no
 ;rxondelay = 2
