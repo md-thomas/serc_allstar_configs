@@ -31,4 +31,4 @@ rxhungtime = 10
 dcsfilter = yes
 queuesize = 16 
 tx_audio_level_method = 0
-rxblank = 0 
+rxblank = 50 
