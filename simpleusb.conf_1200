@@ -14,16 +14,21 @@ ctcssfrom = no
 
 ; PTT Control
 ; 0 = Active Low / Ground to TX on Icom HD15 Pin 3 (EXT PTT)
-invertptt = 0
+invertptt = 1
 
 ; Audio Processing Settings (Option A: Using Pin 12 DISC OUT & Pin 6 MOD IN)
 rxboost = 0          ; Set to 1 if receiver output level is too low
 plfilter = yes       ; Filters sub-audible CTCSS tones from repeat audio
 
 ; DSP Filtering (Required for Flat / Unfiltered Audio on Pins 12 & 6):
-deemphasis = yes     ; Required because Pin 12 (DISC OUT) is flat/unfiltered
-preemphasis = yes    ; Required because Pin 6 (MOD IN) is direct modulator input
+deemphasis = no     ; Required because Pin 12 (DISC OUT) is flat/unfiltered
+preemphasis = no    ; Required because Pin 6 (MOD IN) is direct modulator input
 
 ; Squelch Tail & Timing Settings
-rxaudiodelay = 8     ; Mutes squelch tail static (160ms delay)
-rxondelay = 3        ; Prevents false squelch triggers (60ms delay)
+rxaudiodelay = 10     ; Mutes squelch tail static (160ms delay)
+rxondelay = 10        ; Prevents false squelch triggers (60ms delay)
+rxhungtime = 10
+dcsfilter = yes
+queuesize = 16 
+tx_audio_level_method = 0
+rxblank = 0 
