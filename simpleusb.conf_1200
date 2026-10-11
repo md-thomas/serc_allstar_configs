@@ -18,7 +18,7 @@ invertptt = 1
 
 ; Audio Processing Settings (Option A: Using Pin 12 DISC OUT & Pin 6 MOD IN)
 rxboost = 0          ; Set to 1 if receiver output level is too low
-plfilter = yes       ; Filters sub-audible CTCSS tones from repeat audio
+plfilter = no       ; Filters sub-audible CTCSS tones from repeat audio
 
 ; DSP Filtering (Required for Flat / Unfiltered Audio on Pins 12 & 6):
 deemphasis = no     ; Required because Pin 12 (DISC OUT) is flat/unfiltered
