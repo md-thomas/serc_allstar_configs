@@ -4,11 +4,17 @@
 
 [1200]
 rxchannel = SimpleUSB/usb1
-duplex = 2
+duplex = 0
 erxgain = -3
 etxgain = 3
-hangtime = 1000
+hangtime = 0
+althangtime = 0
+uniquethru = 1
+holdofftelem = 1
+linkunkeydelay = 1000
 altmode = 0
+rxmode = 1
+txlimittime = 60000
 callerid = Repeater <000001200>
 accountcode = RADIO
 
